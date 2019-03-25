@@ -1,4 +1,7 @@
 /* Add your Application JavaScript */
+/*global Vue*/
+/*global fetch*/
+
 Vue.component('app-header', {
     template: `
         <header>
@@ -35,10 +38,29 @@ Vue.component('app-footer', {
     data: function() {
         return {
             year: (new Date).getFullYear()
-        }
+        };
     }
-})
+});
 
+Vue.component('news-list', {
+ template: `…`,
+ created: function() {
+ let self = this;
+ fetch('https://newsapi.org/register/success?country=us&apiKey=<>')
+ .then(function(response) {
+ return response.json();
+ })
+ .then(function(data) {
+ console.log(data);
+ self.articles = data.articles;
+ });
+ },
+ data: function() {
+ return {
+ articles: []
+ };
+ }
+});
 
 let app = new Vue({
     el: '#app',

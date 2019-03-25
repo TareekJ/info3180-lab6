@@ -5,3 +5,11 @@ body {
 footer  {
     padding-top: 20px;
 }
+
+ul {
+  text-align: center;
+  list-style: inside;
+}
+h2{
+  text-align: center;  
+}
